@@ -3,7 +3,7 @@
 ## Description
 This repository offers a template-driven approach to facilitate the deployment of Databricks Workflows. Below is an overview of the contents:
 
-### job_definitions/<job.yml>
+### ```job_definitions/<job.yml>```
 - Contains job definition files. To create a new job, add a new yml file with the job definitions here.
 
 ### deploy/ <environment>
