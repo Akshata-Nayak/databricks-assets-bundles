@@ -1,0 +1,33 @@
+bundle:
+  name: default_bundle
+
+variables:
+  notebook_path:
+    default: /<default>/<path>
+  spark_version:
+    default: <default version>
+  environment:
+    default: development
+
+include:
+{{bundle_resources_list}}
+
+targets:
+  dev:
+    default: true
+    workspace:
+      root_path: /DatabricksAssetBundles/.bundle/dev/${bundle.name}/{{branch_name}}
+    resources:
+      jobs: {{job_permissions}}
+        
+  test:
+    workspace:
+      root_path: /DatabricksAssetBundles/.bundle/test/${bundle.name}
+    resources:
+      jobs: {{job_permissions}}
+
+  prod:
+    workspace:
+      root_path: /DatabricksAssetBundles/.bundle/prod/${bundle.name}
+    resources:
+      jobs: {{job_permissions}}

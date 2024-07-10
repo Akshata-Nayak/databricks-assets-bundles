@@ -1,0 +1,15 @@
+bundle:
+  name: default_bundle
+
+variables:
+  notebook_path:
+    default: /<default>/<path>
+  spark_version:
+    default: <default version>
+
+
+targets:
+  dev:
+    default: true
+    workspace:
+      root_path: /Shared/.bundle/dev/${bundle.name}/{{branch_name}}

@@ -1,0 +1,54 @@
+resources:
+  jobs:
+    ABC:
+      name: ABC
+      schedule:
+        quartz_cron_expression: 0 0 13 * * ?
+        timezone_id: Australia/Sydney
+        pause_status: UNPAUSED
+      tasks:
+        - task_key: Stream_Data_In
+          notebook_task:
+            notebook_path: ${var.notebook_path}/ABC/ABC_stream_ingestion
+            base_parameters:
+              task_name: "{{task.name}}"
+              job_name: "{{job.name}}"
+              job_id: "{{job.id}}"
+              run_id: "{{job.run_id}}"
+              task_run_id: "{{task.run_id}}"
+            source: WORKSPACE
+          job_cluster_key: Job_cluster
+        - task_key: ABC_UpdateTables
+          depends_on:
+            - task_key: Stream_Data_In
+          notebook_task:
+            notebook_path: ${var.notebook_path}/ABC/ABC_tables_ingestion
+            base_parameters:
+              task_name: "{{task.name}}"
+              job_name: "{{job.name}}"
+              job_id: "{{job.id}}"
+              run_id: "{{job.run_id}}"
+              task_run_id: "{{task.run_id}}"
+            source: WORKSPACE
+          job_cluster_key: Job_cluster
+      job_clusters:
+        - job_cluster_key: Job_cluster
+          new_cluster:
+            cluster_name: ""
+            spark_version: ${var.spark_version}
+            azure_attributes:
+              first_on_demand: 1
+              availability: ON_DEMAND_AZURE
+              spot_bid_max_price: -1
+            node_type_id: Standard_DS3_v2
+            spark_env_vars:
+              PYSPARK_PYTHON: /databricks/python3/bin/python3
+            enable_elastic_disk: true
+            data_security_mode: SINGLE_USER
+            runtime_engine: PHOTON
+            num_workers: 8
+      parameters:
+        - name: environment
+          default: ${var.environment}
+        - name: fail_on_data_loss
+          default: "true"
