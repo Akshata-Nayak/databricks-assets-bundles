@@ -19,7 +19,7 @@ This repository offers a template-driven approach to facilitate the deployment o
 ### scripts/databricks_job_deployment.py
 - **Purpose:** Starting Point for Deployment
 - **Functionality:**
-  - Generates Databricks.yml file based on the template scripts/databricks_deploy_template.yml.
+  - Generates Databricks.yml file based on the template ```scripts/databricks_deploy_template.yml```.
   - Parses command-line arguments for environment and branch name. The environment-specific deployment file is referenced based on the environment name (e.g., if environment is "development", it refers to deploy/development).
   - Deploys all jobs referred to in the environment file.
 
