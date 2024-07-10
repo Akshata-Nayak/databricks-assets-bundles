@@ -46,9 +46,9 @@ This repository offers a template-driven approach to facilitate the deployment o
 
 ## Deployment
 To deploy resources:
-```make deploy ENVIRONMENT=development```
+```make deploy ENVIRONMENT=development``` </br>
 To destroy resources:
-```make destroy ENVIRONMENT=development```
+```make destroy ENVIRONMENT=development``` </br>
 Replace development with the desired environment (e.g., test, production) as needed.
 
 
