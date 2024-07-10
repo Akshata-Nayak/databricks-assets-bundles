@@ -24,7 +24,8 @@ This repository offers a template-driven approach to facilitate the deployment o
   - Deploys all jobs referred to in the environment file.
 
 ### ```scripts/databricks_dev_cleanup.py```
-- **Purpose:** Cleanup Script
+- **Purpose:** Cleanup Script.
+    This cleanup script is intended to removes all resources in the specified environment. To delete a specific job, update the job_definitions/<environment> file to exclude the job that you want to remove.
 - **Functionality:**
   - Generates a Databricks YAML file for cleanup using the provided branch name.
   - Validates command-line arguments and provides usage instructions.
@@ -35,6 +36,13 @@ This repository offers a template-driven approach to facilitate the deployment o
 - **Purpose:** Templated Deletion File
 - **Functionality:** 
   - Forms part of the configuration for deleting resources created by Databricks bundles.
+
+### ```manage_dab.sh```
+- **Purpose:** Handles deployment and cleanup tasks for Databricks Asset Bundles based on the specified environment.
+- **Functionality:**  
+  - deploy() Function: Manages the deployment process.
+  - destroy() Function: Manages the destruction of resources.
+  - Action Execution: Executes the appropriate function (deploy or destroy) based on the specified ACTION, and runs additional Databricks CLI commands for bundle management.
 
 ## Authors and Acknowledgments
 - Danny (Databricks SA)
