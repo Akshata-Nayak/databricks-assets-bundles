@@ -49,7 +49,7 @@ To deploy resources:
 ```make deploy ENVIRONMENT=development``` </br>
 To destroy resources:
 ```make destroy ENVIRONMENT=development``` </br>
-Replace development with the desired environment (e.g., test, production) as needed.
+Replace `development` with the desired environment (e.g., `test`, `production`) as needed.
 
 
 ## Authors and Acknowledgments
