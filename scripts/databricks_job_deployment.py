@@ -63,9 +63,9 @@ def main():
         {{job_name}}:
             email_notifications:
                 on_success:
-                - abcde@gmail.com
+                - abc@gmail.com
                 on_failure:
-                - abcde@gmail.com
+                - abc@gmail.com
             permissions:
                 - group_name: Group-Developers
                   level: CAN_MANAGE_RUN
@@ -80,9 +80,9 @@ def main():
         {{job_name}}:
             email_notifications:
                 on_success:
-                - abcde@gmail.com
+                - abc@gmail.com
                 on_failure:
-                - abcde@gmail.com
+                - abc@gmail.com
             permissions:
                 - group_name: Group-Developers
                   level: CAN_MANAGE_RUN

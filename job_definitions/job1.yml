@@ -1,7 +1,7 @@
 resources:
   jobs:
-    ABC:
-      name: ABC
+    job1:
+      name: job1
       email_notifications:
         on_success:
           - abc@gmail.com
@@ -12,16 +12,16 @@ resources:
           notebook_task:
             notebook_path: ${var.notebook_path}/
             source: WORKSPACE
-          job_cluster_key: ABC_Job_Cluster
-        - task_key: ABC_UpdateTables
+          job_cluster_key: job1_Job_Cluster
+        - task_key: job1_UpdateTables
           depends_on:
             - task_key: Stream_Data_In
           notebook_task:
             notebook_path: ${var.notebook_path}/
             source: WORKSPACE
-          job_cluster_key: ABC_Job_Cluster
+          job_cluster_key: job1_Job_Cluster
       job_clusters:
-        - job_cluster_key: ABC_Job_Cluster
+        - job_cluster_key: job1_Job_Cluster
           new_cluster:
             cluster_name: ""
             spark_version: ${var.spark_version}

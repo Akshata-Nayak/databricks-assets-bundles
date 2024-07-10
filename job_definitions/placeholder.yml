@@ -5,16 +5,16 @@ resources:
       tasks:
         - task_key: Stream_Data_In
           notebook_task:
-            notebook_path: ${var.notebook_path}/ABC/ABC_stream_ingestion
+            notebook_path: ${var.notebook_path}/placeholder/placeholder_stream_ingestion
             source: WORKSPACE
-          job_cluster_key: ABC_Job_Cluster
-        - task_key: ABC_UpdateTables
+          job_cluster_key: placeholder_Job_Cluster
+        - task_key: placeholder_UpdateTables
           depends_on:
             - task_key: Stream_Data_In
           notebook_task:
-            notebook_path: ${var.notebook_path}/ABC/ABC_tables_ingestion
+            notebook_path: ${var.notebook_path}/placeholder/placeholder_tables_ingestion
             source: WORKSPACE
-          job_cluster_key: ABC_Job_Cluster
+          job_cluster_key: placeholder_Job_Cluster
       job_clusters:
         - job_cluster_key: ABC_Job_Cluster
           new_cluster:
