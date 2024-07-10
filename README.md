@@ -44,6 +44,14 @@ This repository offers a template-driven approach to facilitate the deployment o
   - destroy() Function: Manages the destruction of resources.
   - Action Execution: Executes the appropriate function (deploy or destroy) based on the specified ACTION, and runs additional Databricks CLI commands for bundle management.
 
+## Deployment
+To deploy resources:
+```make deploy ENVIRONMENT=development```
+To destroy resources:
+```make destroy ENVIRONMENT=development```
+Replace development with the desired environment (e.g., test, production) as needed.
+
+
 ## Authors and Acknowledgments
 - Danny (Databricks SA)
 - Akshata Nayak (Mantel Group)
